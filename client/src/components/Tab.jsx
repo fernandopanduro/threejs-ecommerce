@@ -1,11 +1,13 @@
 import React from "react";
 import { useSnapshot } from "valtio";
+
 import state from "../store";
 
-const Tab = ({ tab, isFilterTab, isActiveTap, handleClick }) => {
+const Tab = ({ tab, isFilterTab, isActiveTab, handleClick }) => {
   const snap = useSnapshot(state);
+
   const activeStyles =
-    isFilterTab && isActiveTap
+    isFilterTab && isActiveTab
       ? { backgroundColor: snap.color, opacity: 0.5 }
       : { backgroundColor: "transparent", opacity: 1 };
 
@@ -13,7 +15,7 @@ const Tab = ({ tab, isFilterTab, isActiveTap, handleClick }) => {
     <div
       key={tab.name}
       className={`tab-btn ${
-        isFilterTab ? "rounded-full glassmorhism" : "rounded-4"
+        isFilterTab ? "rounded-full glassmorphism" : "rounded-4"
       }`}
       onClick={handleClick}
       style={activeStyles}>
